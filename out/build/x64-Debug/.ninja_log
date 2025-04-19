@@ -1,0 +1,16 @@
+# ninja log v6
+44	483	7667015372403630	samples/CMakeFiles/polinoms.dir/__/src/Polynomial.cpp.obj	8e7cb38cf8da04b
+30	741	7667015372124785	samples/CMakeFiles/polinoms.dir/__/src/Monomial.cpp.obj	277471e8254d6050
+55	879	7667015372515246	samples/CMakeFiles/polinoms.dir/main.cpp.obj	7958f5c36bc92eca
+879	1434	7667015380691539	samples/polinoms.exe	b3c3ae7147fcc24f
+44	1006	7667015680244591	test/CMakeFiles/polinoms_test.dir/__/src/Polynomial.cpp.obj	77b97c743b456124
+36	1148	7667015680169380	test/CMakeFiles/polinoms_test.dir/__/src/Monomial.cpp.obj	2b0ab048ed5201cc
+53	1350	7667015680340003	test/CMakeFiles/polinoms_test.dir/test_hashtable.cpp.obj	a50ea4194b44143d
+60	1466	7667015680402828	test/CMakeFiles/polinoms_test.dir/test_main.cpp.obj	c184b40bf93e089
+67	2058	7667015680467611	test/CMakeFiles/polinoms_test.dir/test_red_black.cpp.obj	6e5160745aab5c7f
+1011	2532	7667015689917484	test/CMakeFiles/polinoms_test.dir/test_sorted.cpp.obj	1faa68522a71cfbd
+1149	2559	7667015691286908	test/CMakeFiles/polinoms_test.dir/test_table.cpp.obj	bc27ba62ea372ae0
+1351	2782	7667015693307562	test/CMakeFiles/polinoms_test.dir/test_unsorted_table.cpp.obj	e72071a13798a0c7
+24	2831	7667015679904726	gtest/CMakeFiles/gtest.dir/gtest-all.cc.obj	6842e71d444fee9e
+2831	2989	7667015708118884	gtest/gtest.lib	50c2b03c699fa42f
+2989	3363	7667015709699459	test/polinoms_test.exe	28fb9c9909deed36
