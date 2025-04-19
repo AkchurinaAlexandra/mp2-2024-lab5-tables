@@ -3,7 +3,7 @@ C:/Users/user/OneDrive/Desktop/Lab_5/out/build/x64-Debug/CMakeFiles/rebuild_cach
 C:/Users/user/OneDrive/Desktop/Lab_5/out/build/x64-Debug/samples/CMakeFiles/polinoms.dir
 C:/Users/user/OneDrive/Desktop/Lab_5/out/build/x64-Debug/samples/CMakeFiles/edit_cache.dir
 C:/Users/user/OneDrive/Desktop/Lab_5/out/build/x64-Debug/samples/CMakeFiles/rebuild_cache.dir
-C:/Users/user/OneDrive/Desktop/Lab_5/out/build/x64-Debug/test/CMakeFiles/polinoms_test.dir
+C:/Users/user/OneDrive/Desktop/Lab_5/out/build/x64-Debug/test/CMakeFiles/tables_test.dir
 C:/Users/user/OneDrive/Desktop/Lab_5/out/build/x64-Debug/test/CMakeFiles/edit_cache.dir
 C:/Users/user/OneDrive/Desktop/Lab_5/out/build/x64-Debug/test/CMakeFiles/rebuild_cache.dir
 C:/Users/user/OneDrive/Desktop/Lab_5/out/build/x64-Debug/gtest/CMakeFiles/gtest.dir

@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "test/polinoms_test.exe"
+			"path" : "test/tables_test.exe"
 		},
 		{
-			"path" : "test/polinoms_test.pdb"
+			"path" : "test/tables_test.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -85,7 +85,7 @@
 			"id" : "gtest::@0af4add9fe94340e763e"
 		}
 	],
-	"id" : "polinoms_test::@36f028580bb02cc8272a",
+	"id" : "tables_test::@36f028580bb02cc8272a",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -106,8 +106,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "polinoms_test",
-	"nameOnDisk" : "polinoms_test.exe",
+	"name" : "tables_test",
+	"nameOnDisk" : "tables_test.exe",
 	"paths" : 
 	{
 		"build" : "test",

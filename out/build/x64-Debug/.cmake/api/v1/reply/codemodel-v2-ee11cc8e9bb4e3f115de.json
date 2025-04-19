@@ -104,9 +104,9 @@
 				},
 				{
 					"directoryIndex" : 2,
-					"id" : "polinoms_test::@36f028580bb02cc8272a",
-					"jsonFile" : "target-polinoms_test-Debug-611885b7191c25c09861.json",
-					"name" : "polinoms_test",
+					"id" : "tables_test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-tables_test-Debug-9055f3231a66351ef272.json",
+					"name" : "tables_test",
 					"projectIndex" : 0
 				}
 			]
