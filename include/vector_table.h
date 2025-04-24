@@ -53,7 +53,7 @@ class VectorTable : public TableInterface<K, V> {
  protected:
     virtual size_t find_key_index(K key) const = 0;
     std::vector<std::pair<K, V>> table;
-    std::ostream& out = std::cout; // log stream by default
+    std::ostream& out = std::cout; // log stream
     std::string table_type;
 };
 
@@ -84,7 +84,7 @@ class SortedTable : public VectorTable<K, V> {
         if (idx != -1) {
             this->table[idx] = std::make_pair(key, value);
             this->operations_count++;
-            this->writeOperations("SortedTable", "put", out);
+            this->writeOperations("SortedTable", "put", std::cout);
             return;
         }
         this->table.emplace_back(key, value);
@@ -97,7 +97,7 @@ class SortedTable : public VectorTable<K, V> {
                 break;
             }
         }
-        this->writeOperations("SortedTable", "put", out);
+        this->writeOperations("SortedTable", "put", std::cout);
     }
  protected:
     // not needed after making custom lowerbound
@@ -130,7 +130,7 @@ class SortedTable : public VectorTable<K, V> {
     size_t find_key_index(K key) const override { // -1 if not found
         size_t idx = custom_lower_bound(key);
 
-        if (idx ==  this->table.size()) {
+        if (idx == this->table.size()) {
             return -1;
         }
         if (this->equal(this->table[idx].first, key)) {

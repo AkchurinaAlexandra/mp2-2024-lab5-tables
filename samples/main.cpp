@@ -8,7 +8,7 @@ void printMenu() {
     std::cout << "2. Find polynomial in the table by key\n";
     std::cout << "3. Extract a polynomial by key\n";
     std::cout << "4. Arithmetic with polynomials\n";
-    std::cout << "5. Exit\n\n";
+    std::cout << "5. Exit\n";
 }
 
 void printPolinomsFormat() {
@@ -27,7 +27,45 @@ bool operator==(const Polynomial &lhs, const Polynomial &rhs) {
     return lhs.toString() == rhs.toString();
 }
 
-void doPolynomialOperations() { // from lab polinoms
+Polynomial enter_polinom() {
+    std::cout << "Enter polynomial:\n";
+    std::cin.ignore();
+    std::string poly_str;
+    std::getline(std::cin, poly_str);
+    return Polynomial(poly_str);
+}
+
+
+Polynomial enter_polinom_or_from_table(Table<std::string, Polynomial>& table) {
+    std::cout << "Do you want to enter a polynomial or get it from the table?\n"
+                 "\t1. Enter polynomial\n"
+                 "\t2. Get polynomial from the table\n";
+    while (true) {
+        int opt;
+        std::cin >> opt;
+        switch (opt){
+            case 1:
+                return enter_polinom();
+            case 2: {
+                std::string key;
+                std::cout << "Enter key of polynomial:\n";
+                std::cin >> key;
+                try {
+                    Polynomial poly = table.get(key);
+                    std::cout << "The polynomial: " << poly.toString() << "\n";
+                    return poly;
+                } catch (const std::runtime_error &e) {
+                    std::cout << "Polynomial not found in the table.\n";
+                }
+            }
+            default:
+                std::cout << "Invalid option. Try again.\n";
+        }
+    }
+
+}
+
+void doPolynomialOperations(Table<std::string, Polynomial>& table) {
     try {
         std::cout << "Choose an operation\n"
                      "\t1. Add two polynomials\n"
@@ -36,14 +74,10 @@ void doPolynomialOperations() { // from lab polinoms
                      "\t4. Multiply a polynomial by a number\n";
         int choice;
         std::cin >> choice;
-        std::string s1, s2;
         std::cout << "Enter the first polynomial:\n";
-        std::cin.ignore();
-        std::getline(std::cin, s1);
-        Polynomial p1(s1);
+        Polynomial p1 = enter_polinom_or_from_table(table);
         std::cout << "Enter the second polynomial:\n";
-        std::getline(std::cin, s2);
-        Polynomial p2(s2);
+        Polynomial p2 = enter_polinom_or_from_table(table);
         Polynomial result;
         switch (choice) {
             case 1:
@@ -65,6 +99,22 @@ void doPolynomialOperations() { // from lab polinoms
                 std::cerr << "Invalid choice of an operation.\n";
         }
         std::cout << "result = " << result.toString() << std::endl;
+        std::cout << "Do you want to save the result in the table?\n"
+                     "\t1. Yes\n"
+                     "\t2. No\n";
+        int opt;
+        std::cin >> opt;
+        if (opt == 1) {
+            std::string key;
+            std::cout << "Enter key:\n";
+            std::cin >> key;
+            table.put(key, result);
+            std::cout << "Polynomial saved in the table.\n";
+        } else if (opt == 2) {
+            std::cout << "Polynomial not saved in the table.\n";
+        } else {
+            std::cerr << "Invalid option. Choose 1 or 2\n";
+        }
     } catch (std::exception& e) {
         std::cerr << e.what() << std::endl;
     }
@@ -73,7 +123,7 @@ void doPolynomialOperations() { // from lab polinoms
 int main() {
     Table<std::string, Polynomial> table;
     int choice;
-    printPolinomsFormat();
+
     do {
         printMenu();
         std::cout << "Choose an action: ";
@@ -83,10 +133,12 @@ int main() {
                 std::string key;
                 std::cout << "Enter key: ";
                 std::cin >> key;
-                std::cout << "Enter polynomial: ";
-                std::string poly_str;
+                std::cout << "Enter polynomial:\n";
+
                 std::cin.ignore();
+                std::string poly_str;
                 std::getline(std::cin, poly_str);
+
                 Polynomial poly(poly_str);
                 table.put(key, poly);
                 break;
@@ -97,9 +149,9 @@ int main() {
                 std::cin >> key;
                 try {
                     Polynomial poly = table.get(key);
-                    std::cout << "\nThe polynomial: " << poly.toString() << "\n\n";
+                    std::cout << "The polynomial: " << poly.toString() << "\n";
                 } catch (const std::runtime_error &e) {
-                    std::cout << "\nPolynomial not found in the table.\n\n";
+                    std::cout << "Polynomial not found in the table.\n";
                 }
                 break;
             }
@@ -109,21 +161,21 @@ int main() {
                 std::cin >> key;
                 try {
                     table.extract(key);
-                    std::cout << "\nPolynomial is extracted.\n";
+                    std::cout << "Polynomial is extracted.\n";
                 } catch (const std::runtime_error &e) {
-                    std::cout << "\nPolynomial not found in the table.\n\n";
+                    std::cout << "Polynomial not found in the table.\n";
                 }
                 break;
             }
             case 4: {
-                doPolynomialOperations();
+                doPolynomialOperations(table);
                 break;
             }
             case 5:
-                std::cout << "\nExit.\n";
+                std::cout << "Exit.\n";
                 break;
             default:
-                std::cout << "\nUnknown operation.\n";
+                std::cout << "Unknown operation.\n";
         }
     } while (choice != 5);
 
